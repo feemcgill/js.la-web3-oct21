@@ -41,8 +41,8 @@ const connect = async () => {
   provider = new ethers.providers.Web3Provider(window.ethereum, 'any')
   signer = provider.getSigner()
   contract = new ethers.Contract(contract_address, contract_abi, provider)
-
   await provider.send('eth_requestAccounts', [])
+
   const bal = await contract.balanceOf(signer.getAddress())
   if (bal.toNumber() > 0) {
     dom_show_registered()
@@ -52,6 +52,8 @@ const connect = async () => {
   dom_connect_button.style.display = 'none'
   dom_user.style.display = 'block'
   dom_signer.innerHTML = await signer.getAddress()
+
+  return true
 }
 
 const mint = async () => {
@@ -66,10 +68,13 @@ const mint = async () => {
   dom_status.innerHTML = 'Transaction processing... <img src="assets/pab_dolph.gif">'
   obj.tx = obj.mint.hash
   obj.transaction = await provider.waitForTransaction(obj.tx)
-  obj.token_id = parseInt(Number(obj.transaction.logs[0].topics[3]))
-  obj.uri = await contract.tokenURI(obj.token_id)
   dom_show_registered()
   return obj
+}
+
+const get_uri = async (transaction) => {
+  const uri = await contract.tokenURI(parseInt(Number(transaction.logs[0].topics[3])))
+  return uri
 }
 
 /** 
