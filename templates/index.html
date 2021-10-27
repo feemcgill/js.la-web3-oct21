@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=900, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <base href="/" />
+  <!-- ICONS / WEBAPP -->
+    <link rel="icon" href="assets/smokin_dead_dude.gif">
+
+
+
+  <style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline
+    }
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      display: block
+    }
+
+    body {
+      line-height: 1
+    }
+
+    ol,
+    ul {
+      list-style: none
+    }
+
+    blockquote,
+    q {
+      quotes: none
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: '';
+      content: none
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    a {
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      -webkit-margin-start: 0;
+      -webkit-margin-end: 0;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    body {
+      font-size: 16px;
+      overflow-x: hidden;
+      width: 100vw;
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Arial Black";
+      font-size: 30px;
+      overflow-y: hidden;
+      background: #F4F498;
+      padding: 50px;
+    }
+
+    * {
+      box-sizing: border-box;
+      outline: 0;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+
+    #latest-data {
+      max-width: 50%;
+    }
+    button {
+      font-size: 25px;
+      background-color: #aaa;
+      border: 3px solid #ddd;
+      border-bottom-color: #444;
+      border-right-color: #444;
+      padding: 0.2em;
+      font-family: "Arial Black";
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: black;
+      border: 3px solid red;
+      border-top-color: blue;
+      border-bottom-color: yellow;
+      border-right-color:green;
+      color: white;     
+    }    
+    h1 {
+      font-size: 100px;
+      text-transform: uppercase;
+      line-height: 0.85;
+      margin-right: 50px;
+    }
+    h2 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    #signer {
+      /* font-size: 12px; */
+      word-break: break-all;
+      color: #C1E5D5;
+      line-height: 1.2;
+    }
+    #user {
+      background-color: black;
+      color: #F4F498;
+      padding: 20px;
+      border-radius: 20px;
+    }
+    #register {
+      background-color: #C1E5D5;
+      padding: 50px;
+      margin: 50px 0% 50px 0%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 1;
+      border-radius: 20px;
+      font-size: 50px;
+    }
+    #status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; 
+    }
+    #register img {
+      max-width: 100px;
+      height: auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    #registered {
+      text-align: center;
+      padding: 50px;
+      background-image: linear-gradient(to right top, #da67ff, #5d9fff, #00c0ff, #00d4ff, #00e0d6, #4cdca9, #81d479, #b0c84e, #cfab23, #ea861b, #fc5838, #ff065f);    
+      border-radius: 20px;
+    }
+  </style>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Javascript <br /> Symposium</h1>
+      <div class="connect">
+          <div style="display: none;" id="user">
+           Hi, <span id="signer"></span> you are connected to this website.
+          </div>
+          <button id="connect-button">Connect Wallet</button>
+      </div>
+    </header>
+    <div class="minter">
+    </div>
+
+    <div style="display: none;" id="register">
+      <div id="status">Please register for our Symposium</div>
+      <button id="mint-one">Register</button>
+    </div>
+    <div style="display: none;" id="registered">
+      <h2>Thank you for registering!</h2>
+      <p>Enjoy some premium content!</p>
+      <p><img src="assets/dolphs.png" alt=""></p>
+    </div>
+  </div>
+</body>
+
+</html>
