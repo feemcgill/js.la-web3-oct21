@@ -72,11 +72,6 @@ const mint = async () => {
   return obj
 }
 
-const get_uri = async (transaction) => {
-  const uri = await contract.tokenURI(parseInt(Number(transaction.logs[0].topics[3])))
-  return uri
-}
-
 /** 
 Dom stuff
 **/
