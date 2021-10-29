@@ -1,13 +1,4 @@
-import 'regenerator-runtime/runtime'
 import { ethers } from 'ethers'
-
-const dom_mint_button = document.getElementById('mint-one')
-const dom_connect_button = document.getElementById('connect-button')
-const dom_signer = document.getElementById('signer')
-const dom_register = document.getElementById('register')
-const dom_registered = document.getElementById('registered')
-const dom_user = document.getElementById('user')
-const dom_status = document.getElementById('status')
 
 const contract_address = '0x7152d10611051f14abae43daf3632d7a3d63a164'
 
@@ -49,51 +40,50 @@ const connect = async () => {
   } else {
     dom_show_register()
   }
-  dom_connect_button.style.display = 'none'
-  dom_user.style.display = 'block'
-  dom_signer.innerHTML = await signer.getAddress()
+
   return true
 }
 
 const mint = async () => {
-  dom_mint_button.style.display = 'none'
-  dom_status.innerHTML = 'Registering pass'
-  const obj = {}
   const val = {
     value: ethers.utils.parseEther('0.001'),
   }
   const contractWithSigner = await contract.connect(signer)
+  const obj = {}
   obj.mint = await contractWithSigner.mintItem(val)
-  dom_status.innerHTML = 'Transaction processing... <img src="assets/pab_dolph.gif">'
   obj.tx = obj.mint.hash
   obj.transaction = await provider.waitForTransaction(obj.tx)
   dom_show_gated()
   return obj
 }
 
-const get_uri = async (transaction) => {
-  const uri = await contract.tokenURI(parseInt(Number(transaction.logs[0].topics[3])))
-  return uri
-}
+function dom_show_register() {}
 
-/** 
-Dom stuff
-**/
-dom_mint_button.addEventListener('click', function () {
-  mint().then((data) => {
-    console.log('minted!', data)
-  })
-})
+function dom_show_gated() {}
 
-dom_connect_button.addEventListener('click', function () {
-  connect()
-})
+/* 
 
-function dom_show_register() {
-  dom_register.style.display = 'flex'
-}
 
-function dom_show_gated() {
-  dom_registered.style.display = 'block'
-  dom_register.style.display = 'none'
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+connect()
+mint()
